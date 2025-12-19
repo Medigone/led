@@ -1,0 +1,341 @@
+{
+ "actions": [],
+ "allow_events_in_timeline": 1,
+ "allow_rename": 1,
+ "autoname": "format:VC-{MM}-{YY}-{####}",
+ "creation": "2024-08-13 14:34:07.593727",
+ "default_view": "List",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_bceu",
+  "status",
+  "date",
+  "type_visite",
+  "date_rdv",
+  "column_break_bntm",
+  "utilisateur",
+  "nom_utilisateur",
+  "amended_from",
+  "section_break_jq1i",
+  "client",
+  "nom_client",
+  "column_break_yzkg",
+  "groupe_client",
+  "notes_tab",
+  "notes",
+  "localisation_tab",
+  "commune",
+  "wilaya",
+  "region",
+  "column_break_fvmu",
+  "carte_client",
+  "controle_tab",
+  "column_break_akso",
+  "heure_debut_visite",
+  "heure_fin_visite",
+  "duree_visite",
+  "column_break_thex",
+  "gps_visite",
+  "carte",
+  "liens_tab"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_jq1i",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Visite Commerciale",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "default": "Nouveau",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "in_standard_filter": 1,
+   "label": "Statut",
+   "options": "Nouveau\nEn Cours\nTermin\u00e9\nAnnul\u00e9",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_yzkg",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "utilisateur",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Utilisateur",
+   "options": "User",
+   "read_only": 1,
+   "set_only_once": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Date",
+   "reqd": 1
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "client",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Client",
+   "options": "Customer",
+   "reqd": 1,
+   "search_index": 1,
+   "set_only_once": 1
+  },
+  {
+   "fetch_from": "client.customer_name",
+   "fieldname": "nom_client",
+   "fieldtype": "Data",
+   "label": "Nom Client",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "client.custom_commune",
+   "fieldname": "commune",
+   "fieldtype": "Link",
+   "label": "Commune",
+   "options": "Communes",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "commune.wilaya",
+   "fieldname": "wilaya",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Wilaya",
+   "options": "Wilayas",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "commune.region",
+   "fieldname": "region",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "R\u00e9gion",
+   "options": "Territory",
+   "read_only": 1
+  },
+  {
+   "fieldname": "notes_tab",
+   "fieldtype": "Tab Break",
+   "label": "Notes"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "notes",
+   "fieldtype": "Text Editor",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "localisation_tab",
+   "fieldtype": "Tab Break",
+   "label": "Localisation"
+  },
+  {
+   "fieldname": "gps_visite",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "GPS Visite"
+  },
+  {
+   "fieldname": "carte",
+   "fieldtype": "HTML",
+   "label": "Carte",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_akso",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "heure_debut_visite",
+   "fieldtype": "Datetime",
+   "label": "Heure D\u00e9but Visite",
+   "read_only": 1
+  },
+  {
+   "fieldname": "heure_fin_visite",
+   "fieldtype": "Datetime",
+   "label": "Heure Fin Visite",
+   "read_only": 1
+  },
+  {
+   "description": "En Minutes",
+   "fieldname": "duree_visite",
+   "fieldtype": "Data",
+   "label": "Temps Visite",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "utilisateur.full_name",
+   "fetch_if_empty": 1,
+   "fieldname": "nom_utilisateur",
+   "fieldtype": "Data",
+   "label": "Nom Utilisateur",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "client.customer_group",
+   "fieldname": "groupe_client",
+   "fieldtype": "Link",
+   "label": "Groupe de Client",
+   "options": "Customer Group",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval: doc.status == 'Termin\u00e9' || doc.status == 'Valid\u00e9'",
+   "fieldname": "controle_tab",
+   "fieldtype": "Tab Break",
+   "label": "Contr\u00f4le"
+  },
+  {
+   "fieldname": "column_break_fvmu",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "carte_client",
+   "fieldtype": "HTML",
+   "label": "Carte Client"
+  },
+  {
+   "fieldname": "column_break_thex",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_bceu",
+   "fieldtype": "Section Break"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "type_visite",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Type Visite",
+   "options": "\nProspection\nPr\u00e9sentation de produit\nN\u00e9gociation\nSuivi Client\nR\u00e9clamation client\nRecouvrement",
+   "read_only_depends_on": "eval:doc.status !=\"Nouveau\"",
+   "reqd": 1,
+   "sort_options": 1
+  },
+  {
+   "fieldname": "column_break_bntm",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "date_rdv",
+   "fieldtype": "Datetime",
+   "label": "Date & Heure du RDV",
+   "read_only": 1
+  },
+  {
+   "fieldname": "liens_tab",
+   "fieldtype": "Tab Break",
+   "label": "Liens",
+   "show_dashboard": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "is_calendar_and_gantt": 1,
+ "is_submittable": 1,
+ "links": [
+  {
+   "link_doctype": "Reclamations Clients",
+   "link_fieldname": "visite"
+  }
+ ],
+ "modified": "2025-11-24 21:42:48.852288",
+ "modified_by": "Administrator",
+ "module": "LED Advertising",
+ "name": "Visite Commerciale",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "select": 1,
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "export": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Administrateur Ventes",
+   "select": 1
+  },
+  {
+   "export": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Superviseur CRM",
+   "select": 1
+  },
+  {
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "if_owner": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Commercial Itin\u00e9rant",
+   "select": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [
+  {
+   "color": "Blue",
+   "title": "Nouveau"
+  },
+  {
+   "color": "Yellow",
+   "title": "En Cours"
+  },
+  {
+   "color": "Orange",
+   "title": "Termin\u00e9"
+  },
+  {
+   "color": "Green",
+   "title": "Valid\u00e9"
+  },
+  {
+   "color": "Red",
+   "title": "Annul\u00e9"
+  }
+ ],
+ "title_field": "nom_client",
+ "track_changes": 1
+}

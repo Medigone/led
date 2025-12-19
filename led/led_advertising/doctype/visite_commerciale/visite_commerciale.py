@@ -1,8 +1,13 @@
 from frappe.model.document import Document
 import frappe
 from frappe.utils import now, get_datetime, get_fullname, today
+from frappe.model.naming import make_autoname
 
 class VisiteCommerciale(Document):
+    def autoname(self):
+        """Génère automatiquement le nom selon le format VC-MM-YY-#####"""
+        self.name = make_autoname("VC-.MM.-.YY.-.#####")
+    
     def before_save(self):
         """Exécute les vérifications et mises à jour avant la sauvegarde."""
         

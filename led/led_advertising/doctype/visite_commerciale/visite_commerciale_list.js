@@ -1,10 +1,4 @@
-// Configuration du calendrier pour "Visite Commerciale"
-frappe.views.calendar["Visite Commerciale"] = {
-    field_map: {
-        "start": "date",    // Date prévue de la visite
-        "end": "date",      // Même champ pour les visites ponctuelles
-        "id": "name",              // Identifiant unique
-        "title": "nom_client"      // Utiliser le nom du client (customer_name)
-    },
-    get_events_method: "led.led_advertising.doctype.visite_commerciale.visite_commerciale.get_events"
-};
+// Copyright (c) 2024, LED Advertising and contributors
+// For license information, please see license.txt
+
+// Configuration spécifique à la vue liste si nécessaire

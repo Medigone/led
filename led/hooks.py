@@ -246,4 +246,4 @@ fixtures = [
 	"Wilaya",
 	"Commune",
 	"Client Script",
-]
+ "Custom HTML Block","Workspace",]

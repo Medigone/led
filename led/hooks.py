@@ -142,6 +142,11 @@ doc_events = {
 		"before_save": [
 			"led.led_advertising.customer_hooks.uppercase_customer_name",
 		]
+	},
+	"Item": {
+		"before_save": [
+			"led.custom_hooks.itm_hooks.uppercase_item_name",
+		]
 	}
 }
 

@@ -149,7 +149,7 @@ doc_events = {
 		]
 	},
 	"Purchase Invoice": {
-		"before_save": [
+		"validate": [
 			"led.led_advertising.purchase_invoice_hooks.apply_custom_type_flags",
 		]
 	}

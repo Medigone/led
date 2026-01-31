@@ -147,6 +147,11 @@ doc_events = {
 		"before_save": [
 			"led.custom_hooks.itm_hooks.uppercase_item_name",
 		]
+	},
+	"Purchase Invoice": {
+		"before_save": [
+			"led.led_advertising.purchase_invoice_hooks.apply_custom_type_flags",
+		]
 	}
 }
 

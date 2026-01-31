@@ -253,7 +253,9 @@ doc_events = {
 # }
 
 fixtures = [
-	"Wilaya",
-	"Commune",
-	"Client Script",
- "Custom HTML Block","Workspace",]
+	# "Wilaya",
+	# "Commune",
+	# "Client Script",
+ 	"Custom HTML Block",
+ 	# "Workspace",
+ ]
